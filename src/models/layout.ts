@@ -1,5 +1,5 @@
 import { ImmerReducer } from 'umi';
-import { SendMsg } from '@/type';
+import { SendMsg, TokenItem } from '@/type';
 
 export interface JsonSetting {
   displayDataTypes: boolean;
@@ -10,6 +10,8 @@ export interface LayoutModelState {
   sendList: SendMsg[];
   jsonSetting: JsonSetting;
   msg: any;
+  addTokenModalVisible: boolean;
+  tokenList: TokenItem[];
 }
 export interface LayoutModelType {
   // 命名空间
@@ -33,6 +35,8 @@ const LayoutModel: LayoutModelType = {
       displayObjectSize: true, //展示大小
     },
     msg: undefined,
+    addTokenModalVisible: false,
+    tokenList: [],
   },
   effects: {},
   reducers: {

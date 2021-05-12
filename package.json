@@ -30,11 +30,13 @@
     ]
   },
   "dependencies": {
+    "@ant-design/icons": "^4.6.2",
     "@ant-design/pro-layout": "^6.5.0",
     "@umijs/preset-react": "1.x",
     "ahooks": "^2.10.3",
     "antd": "^4.15.5",
     "react-json-view": "^1.21.3",
+    "react-split-pane": "^0.1.92",
     "storejs": "^1.1.0",
     "styled-components": "^5.3.0",
     "umi": "^3.4.20"

@@ -9,4 +9,9 @@ export enum JsonEditSetting {
 export interface SendMsg {
   time: string;
   msg: any;
+  title?: string;
+}
+export interface TokenItem {
+  name: string;
+  token: string;
 }

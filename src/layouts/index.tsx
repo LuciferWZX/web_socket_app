@@ -5,12 +5,14 @@ import {
   StyledLayout,
   StyledTooltip,
 } from './style';
-import { Button, Popover, Switch, Tag } from 'antd';
+import { AutoComplete, Button, Popover, Switch, Tag } from 'antd';
 import { useModel } from '@@/plugin-model/useModel';
 import { useDispatch, useSelector } from '@@/plugin-dva/exports';
 import { ConnectState } from '@/models/connect';
 import { JsonEditSetting } from '@/type';
 import { history } from 'umi';
+import { PlusOutlined } from '@ant-design/icons';
+import AddTokenModal from '@/layouts/AddTokenModal';
 const Layout: FC = ({ children }) => {
   const dispatch = useDispatch();
   const { socketProperty } = useModel('@@initialState', (model) => ({
@@ -83,14 +85,38 @@ const Layout: FC = ({ children }) => {
   const goSetting = () => {
     history.replace('/connectLayout/connect');
   };
+  const openModal = () => {
+    dispatch({
+      type: 'layout/save',
+      payload: {
+        addTokenModalVisible: true,
+      },
+    });
+  };
   return (
     <StyledLayout>
       <StyledHeader>
-        {socketProperty?.address && (
-          <Tag className={'ant-tag'} onClick={goSetting} color={'green'}>
-            当前连接地址：{socketProperty.address}
-          </Tag>
-        )}
+        <div>
+          {socketProperty?.address && (
+            <Tag className={'ant-tag'} onClick={goSetting} color={'green'}>
+              当前连接地址：{socketProperty.address}
+            </Tag>
+          )}
+          {socketProperty?.address && [
+            <Tag className={'ant-tag'} color={'cyan'}>
+              当前token：默认
+            </Tag>,
+
+            <Button
+              key={'add-token'}
+              onClick={openModal}
+              size={'small'}
+              type={'primary'}
+              className={'add-btn'}
+              icon={<PlusOutlined />}
+            />,
+          ]}
+        </div>
         {socketProperty?.address && (
           <Popover placement={'topRight'} content={content} trigger="hover">
             <Button className={'setting-btn'} type={'link'}>
@@ -100,6 +126,7 @@ const Layout: FC = ({ children }) => {
         )}
       </StyledHeader>
       <StyledContent>{children}</StyledContent>
+      <AddTokenModal />
     </StyledLayout>
   );
 };

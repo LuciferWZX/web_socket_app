@@ -2,4 +2,21 @@ body {
   background-color: #353b48;
   color: #f5f6fa;
   font-weight: 600;
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(34, 47, 62, 1);
+    border: 1px solid rgba(34, 47, 62, 1);
+
+    &:hover {
+      background: #6e6e6e;
+    }
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }

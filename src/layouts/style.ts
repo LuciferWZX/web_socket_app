@@ -9,6 +9,7 @@ export const StyledHeader = styled.div`
   height: 36px;
   background-color: #487eb0;
   box-shadow: 0 1px 1px #487eb0;
+  z-index: 999;
   -webkit-app-region: drag;
   display: flex;
   align-items: center;
@@ -17,6 +18,9 @@ export const StyledHeader = styled.div`
   .ant-tag {
     -webkit-app-region: no-drag;
     cursor: pointer;
+  }
+  .add-btn {
+    -webkit-app-region: no-drag;
   }
   .setting-btn {
     -webkit-app-region: no-drag;
