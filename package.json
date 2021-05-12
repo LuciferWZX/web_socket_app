@@ -1,0 +1,60 @@
+{
+  "private": true,
+  "author": {
+    "email": "2396423791@qq.com",
+    "name": "wzx"
+  },
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "rebuild-deps": "electron-builder install-app-deps",
+    "electron:init": "umi electron init",
+    "electron:dev": "umi dev electron",
+    "electron:build:win": "umi build electron --win",
+    "electron:build:mac": "umi build electron --mac",
+    "electron:build:linux": "umi build electron --linux"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^6.5.0",
+    "@umijs/preset-react": "1.x",
+    "ahooks": "^2.10.3",
+    "antd": "^4.15.5",
+    "react-json-view": "^1.21.3",
+    "storejs": "^1.1.0",
+    "styled-components": "^5.3.0",
+    "umi": "^3.4.20"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.2",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.9",
+    "@umijs/test": "^3.4.20",
+    "electron": "^12.0.7",
+    "electron-builder": "^22.11.3",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.0",
+    "react": "17.x",
+    "react-dom": "17.x",
+    "typescript": "^4.1.2",
+    "umi-plugin-electron-builder": "^2.0.5",
+    "yorkie": "^2.0.0"
+  },
+  "name": "socket_tool",
+  "version": "0.0.1"
+}

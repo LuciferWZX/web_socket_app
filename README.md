@@ -1,2 +1,15 @@
-# web_socket_app
-用来发送soket
+# umi project
+
+## Getting Started
+
+Install dependencies,
+
+```bash
+$ yarn
+```
+
+Start the dev server,
+
+```bash
+$ yarn start
+```
